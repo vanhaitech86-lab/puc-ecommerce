@@ -4,4 +4,4 @@ Disallow: /admin/
 Disallow: /pages/cart.html
 Disallow: /pages/thank-you.html
 
-Sitemap: https://pucoffice.vn/sitemap.xml
+Sitemap: https://puc-ecommerce.vercel.app/sitemap.xml

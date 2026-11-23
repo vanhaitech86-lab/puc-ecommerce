@@ -25,7 +25,7 @@
     tels: [],
     email: '',
     web: '',
-    siteUrl: 'https://pucoffice.vn/',
+    siteUrl: 'https://puc-ecommerce.vercel.app/',
     zalo: 'https://zalo.me/0906273927',
     facebook: 'https://www.facebook.com/p/C%C3%B4ng-ty-TNHH-Unlimitted-Photocopy-100064020552993/',
     messenger: '',
