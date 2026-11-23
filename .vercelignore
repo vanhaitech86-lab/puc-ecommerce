@@ -1,0 +1,9 @@
+_legacy_nextjs
+_legacy_static
+.agents
+.git
+node_modules
+.next
+*.log
+*.bat
+HUONG-DAN-MO-WEB.txt

@@ -1,0 +1,33 @@
+HƯỚNG DẪN MỞ VÀ SỬ DỤNG WEBSITE THƯƠNG MẠI ĐIỆN TỬ PUC OFFICE EQUIPMENT
+===========================================================================
+
+1. CÁCH MỞ WEBSITE TRÊN MÁY TÍNH (CHẠY NGAY KHÔNG CẦN MẠNG)
+----------------------------------------------------------------
+- Cách nhanh nhất: Click đúp vào file:  MO-WEB-PUC.bat
+  -> Trình duyệt sẽ tự động mở website tại http://localhost:3000/index.html
+- Cách đơn giản: Click đúp trực tiếp vào file  index.html  để mở bằng Chrome / Edge.
+
+2. MỞ TRANG QUẢN TRỊ ADMIN & CRM
+----------------------------------------------------------------
+- Khi đang mở trang chủ, bấm nút "Quản trị" trên thanh menu xanh (cạnh chữ "Liên hệ"),
+  hoặc mở trực tiếp file:  admin\index.html
+- Danh sách tài khoản Admin mặc định:
+  + Super Admin (Toàn quyền):  admin      /  PUC@2026
+  + Quản Lý Kinh Doanh:        kinhdoanh  /  Sales@2026
+  + Quản Lý Kỹ Thuật:          kythuat    /  Tech@2026
+
+3. THÔNG TIN DOANH NGHIỆP MẶC ĐỊNH
+----------------------------------------------------------------
+- Thương hiệu: PUC OFFICE EQUIPMENT
+- Pháp lý: CÔNG TY TNHH THƯƠNG MẠI VÀ DỊCH VỤ PUC (PUC TRADING AND SERVICES CO.,LTD)
+- Mã số thuế: 0107485011
+- Địa chỉ: Số 21, ngõ 75 Cầu Đất, Phường Hồng Hà, Thành phố Hà Nội, Việt Nam
+- Hotline / Zalo: 0906 273 927
+- Email, giờ mở cửa, tài khoản ngân hàng: Cấu hình trực tiếp trong Admin > Cài đặt.
+
+4. ĐƯA LÊN HOSTING / VERCEL / NETLIFY
+----------------------------------------------------------------
+- Đây là website tĩnh chuẩn HTML5/CSS3/JS, tương thích 100% với mọi Hosting
+  (cPanel, DirectAdmin, VPS Nginx/Apache, Vercel, Netlify).
+- Chỉ cần upload toàn bộ các file và thư mục này lên thư mục gốc public_html
+  (hoặc deploy trực tiếp qua Vercel với vercel.json có sẵn).

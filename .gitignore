@@ -1,0 +1,9 @@
+# Legacy / build artifacts excluded from PUC static production repository
+_legacy_nextjs/
+_legacy_static/
+node_modules/
+.next/
+.vercel/
+*.log
+.DS_Store
+Thumbs.db
