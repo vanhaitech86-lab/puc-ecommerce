@@ -120,11 +120,11 @@
     companyName: 'CÔNG TY TNHH THƯƠNG MẠI VÀ DỊCH VỤ PUC',
     shortName: 'PUC OFFICE EQUIPMENT',
     taxId: '0107485011',
-    hotline: '0906 273 927',
-    phone: '',
+    hotline: '090.758.6969',
+    phone: '0906 273 927',
     email: '',
-    website: '',
-    address: 'Số 21, ngõ 75 Cầu Đất, Phường Hồng Hà, Thành phố Hà Nội, Việt Nam',
+    website: 'https://puc-ecommerce.vercel.app',
+    address: 'Số 21, ngõ 75 Cầu Đất, P. Hồng Hà, Hà Nội · VPGD: 393 Bạch Đằng, P. Hồng Hà, HN',
     bankName: '',
     bankBranch: '',
     bankAccount: '',
@@ -900,11 +900,13 @@
     if (!localStorage.getItem(STORAGE_KEYS.SETTINGS)) {
       localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(SEED_SETTINGS));
     }
-    // Đồng bộ 219 sản phẩm từ window.PUC_PRODUCTS vào Admin Store
+    // Đồng bộ 262 sản phẩm (kèm danh mục Fujifilm Việt Nam) từ window.PUC_PRODUCTS vào Admin Store
     const catalogSource = window.PUC_PRODUCTS;
     let storedProds = [];
     try { storedProds = JSON.parse(localStorage.getItem(STORAGE_KEYS.PRODUCTS)) || []; } catch (e) { storedProds = []; }
-    if (catalogSource && Array.isArray(catalogSource) && storedProds.length < 50) {
+    const needsFFSync = localStorage.getItem('puc_catalog_ver') !== '2026-ff-43';
+    if (catalogSource && Array.isArray(catalogSource) && (storedProds.length < 50 || needsFFSync)) {
+      localStorage.setItem('puc_catalog_ver', '2026-ff-43');
       const syncedProds = catalogSource.map(p => ({
         id: p.id,
         slug: p.slug,
@@ -1550,23 +1552,24 @@
     // CATEGORIES (Quản lý danh mục sản phẩm đồng bộ với trang chủ)
     getCategories() {
       const defaultCats = [
-        { id: 'may-photocopy', name: 'Máy photocopy', icon: 'fa-files-o', desc: 'Máy photocopy Canon, Ricoh, Fujifilm, Sharp, Konica Minolta chính hãng, bảo hành 12 tháng.' },
-        { id: 'may-in', name: 'Máy in', icon: 'fa-print', desc: 'Máy in laser đen trắng A4/A3, máy in đa chức năng, máy in laser màu và phun màu chính hãng.' },
+        { id: 'may-photocopy', name: 'Máy photocopy', icon: 'fa-files-o', desc: 'Máy photocopy Fujifilm Apeos, Canon, Ricoh, Sharp, Konica Minolta chính hãng.' },
+        { id: 'may-in', name: 'Máy in', icon: 'fa-print', desc: 'Máy in Fujifilm ApeosPrint, Canon, HP, Brother, Epson chính hãng.' },
+        { id: 'phan-mem', name: 'Phần mềm Fujifilm', icon: 'fa-cloud', desc: 'Phần mềm quản lý tài liệu, in ấn đám mây OCR Fujifilm chính hãng.' },
         { id: 'may-scan', name: 'Máy scan tài liệu', icon: 'fa-file-image-o', desc: 'Máy quét tài liệu chuyên dụng Canon, Fujitsu, Plustek, Kodak tốc độ cao.' },
         { id: 'may-huy', name: 'Máy hủy tài liệu', icon: 'fa-scissors', desc: 'Máy hủy tài liệu văn phòng cắt sợi, cắt vụn bảo mật cao.' },
         { id: 'hut-am', name: 'Máy hút ẩm - Lọc khí', icon: 'fa-tint', desc: 'Máy hút ẩm dân dụng & công nghiệp Kosmen, FujiE, Kasami và máy lọc không khí Coway.' },
         { id: 'ma-vach', name: 'Máy quét mã vạch', icon: 'fa-barcode', desc: 'Đầu đọc mã vạch cầm tay có dây và không dây Newland chính hãng.' },
-        { id: 'vat-tu', name: 'Vật tư - Linh kiện', icon: 'fa-cogs', desc: 'Hộp mực in, mực photocopy Canon chính hãng và màn hình tương tác thông minh.' },
-        { id: 'cho-thue', name: 'Cho thuê máy photocopy', icon: 'fa-handshake-o', desc: 'Dịch vụ cho thuê máy photocopy trọn gói tại Hà Nội, miễn phí mực in và bảo trì.' }
+        { id: 'vat-tu', name: 'Vật tư - Linh kiện', icon: 'fa-cogs', desc: 'Hộp mực in, mực photocopy & linh kiện chính hãng luôn sẵn kho.' },
+        { id: 'cho-thue', name: 'Cho thuê máy photocopy', icon: 'fa-handshake-o', desc: 'Dịch vụ cho thuê máy photocopy trọn gói tại Hà Nội, miễn phí mực in và bảo trì 24/7.' }
       ];
       try {
-        return JSON.parse(localStorage.getItem('puc_categories')) || defaultCats;
+        return JSON.parse(localStorage.getItem('puc_categories_v2')) || defaultCats;
       } catch (e) {
         return defaultCats;
       }
     },
     saveCategories(cats) {
-      localStorage.setItem('puc_categories', JSON.stringify(cats));
+      localStorage.setItem('puc_categories_v2', JSON.stringify(cats));
     },
 
     // WEB ANALYTICS (Đo lường hiệu quả website)

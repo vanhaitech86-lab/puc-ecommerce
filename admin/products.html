@@ -755,8 +755,9 @@
     });
 
     function resetCatalogToDefault() {
-      if (!confirm('Đồng bộ lại toàn bộ 219 sản phẩm gốc từ PUC Office Equipment?')) return;
+      if (!confirm('Đồng bộ lại toàn bộ 262 sản phẩm gốc (bao gồm hệ sinh thái Fujifilm Master Dealer) từ PUC Office Equipment?')) return;
       localStorage.removeItem('puc_products');
+      localStorage.removeItem('puc_catalog_ver');
       window.location.reload();
     }
 

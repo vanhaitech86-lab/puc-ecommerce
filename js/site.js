@@ -12,15 +12,17 @@
     shortNameIntl: 'PUC TRADING AND SERVICES CO.,LTD',
     brand: 'PUC OFFICE EQUIPMENT',
     short: 'PUC Office',
-    slogan: 'Phân phối & cho thuê máy photocopy, thiết bị văn phòng chính hãng',
+    contactPerson: 'Mr. Phương – Công ty PUC',
+    slogan: 'Master Dealer Chính Thức Của Fujifilm Tại Việt Nam · Tinh Hoa Công Nghệ Nhật Bản',
     founded: '',
     mst: '0107485011',
     license: '',
     openingHours: '',
     geo: null,
     address: 'Số 21, ngõ 75 Cầu Đất, Phường Hồng Hà, Thành phố Hà Nội, Việt Nam',
-    hotline: '0906 273 927',
-    hotline2: '',
+    branchAddress: '393 Bạch Đằng, Phường Hồng Hà, Thành phố Hà Nội',
+    hotline: '090.758.6969',
+    hotline2: '0906 273 927',
     hotline3: '',
     tels: [],
     email: '',
@@ -80,6 +82,7 @@
   if (savedCfg) {
     if (savedCfg.companyName) CFG.name = savedCfg.companyName;
     if (savedCfg.address) CFG.address = savedCfg.address;
+    if (savedCfg.branchAddress) CFG.branchAddress = savedCfg.branchAddress;
     if (savedCfg.hotline) CFG.hotline = savedCfg.hotline;
     if (savedCfg.mst) CFG.mst = savedCfg.mst;
     if (savedCfg.email) CFG.email = savedCfg.email;
@@ -93,9 +96,15 @@
     if (savedCfg.momoPhone) CFG.momo.phone = savedCfg.momoPhone;
   }
 
-  /* ---------- Đồng bộ 219 Sản phẩm giữa Web & Admin ---------- */
+  /* ---------- Đồng bộ 262 Sản phẩm giữa Web & Admin ---------- */
+  var CATALOG_VER = '2026-ff-43';
   function loadCatalog() {
     var base = (window.PUC_PRODUCTS || []).slice();
+    if (localStorage.getItem('puc_catalog_ver') !== CATALOG_VER && base.length >= 250) {
+      localStorage.setItem('puc_catalog_ver', CATALOG_VER);
+      jset('puc_products', base);
+      return base;
+    }
     var adminList = jget('puc_products', null);
     if (Array.isArray(adminList) && adminList.length >= 50) {
       return adminList.filter(function (p) { return p.status !== 'Ẩn'; });
@@ -107,19 +116,20 @@
 
   /* ---------- Danh mục (có thể quản lý từ Admin) ---------- */
   var DEFAULT_CATS = [
-    { id: 'may-photocopy', name: 'Máy photocopy', icon: 'fa-files-o', desc: 'Máy photocopy Canon, Ricoh, Fujifilm, Sharp, Konica Minolta chính hãng, bảo hành 12 tháng.' },
-    { id: 'may-in', name: 'Máy in', icon: 'fa-print', desc: 'Máy in laser đen trắng A4/A3, máy in đa chức năng, máy in laser màu và phun màu chính hãng.' },
+    { id: 'may-photocopy', name: 'Máy photocopy', icon: 'fa-files-o', desc: 'Máy photocopy Fujifilm Apeos, Canon, Ricoh, Sharp, Konica Minolta chính hãng CO/CQ đầy đủ.' },
+    { id: 'may-in', name: 'Máy in', icon: 'fa-print', desc: 'Máy in Fujifilm ApeosPrint, Canon, HP, Brother, Epson chính hãng cho văn phòng & doanh nghiệp.' },
+    { id: 'phan-mem', name: 'Phần mềm Fujifilm', icon: 'fa-cloud', desc: 'Phần mềm quản lý tài liệu, in ấn đám mây OCR, DocuWorks & ApeosWare chính hãng Fujifilm.' },
     { id: 'may-scan', name: 'Máy scan tài liệu', icon: 'fa-file-image-o', desc: 'Máy quét tài liệu chuyên dụng Canon, Fujitsu, Plustek, Kodak tốc độ cao.' },
     { id: 'may-huy', name: 'Máy hủy tài liệu', icon: 'fa-scissors', desc: 'Máy hủy tài liệu văn phòng cắt sợi, cắt vụn bảo mật cao.' },
     { id: 'hut-am', name: 'Máy hút ẩm - Lọc khí', icon: 'fa-tint', desc: 'Máy hút ẩm dân dụng & công nghiệp Kosmen, FujiE, Kasami và máy lọc không khí Coway.' },
     { id: 'ma-vach', name: 'Máy quét mã vạch', icon: 'fa-barcode', desc: 'Đầu đọc mã vạch cầm tay có dây và không dây Newland chính hãng.' },
-    { id: 'vat-tu', name: 'Vật tư - Linh kiện', icon: 'fa-cogs', desc: 'Hộp mực in, mực photocopy Canon chính hãng và màn hình tương tác thông minh.' },
-    { id: 'cho-thue', name: 'Cho thuê máy photocopy', icon: 'fa-handshake-o', desc: 'Dịch vụ cho thuê máy photocopy trọn gói tại Hà Nội, miễn phí mực in và bảo trì.' }
+    { id: 'vat-tu', name: 'Vật tư - Linh kiện', icon: 'fa-cogs', desc: 'Hộp mực in, mực photocopy & linh kiện chính hãng luôn sẵn kho.' },
+    { id: 'cho-thue', name: 'Cho thuê máy photocopy', icon: 'fa-handshake-o', desc: 'Dịch vụ cho thuê máy photocopy trọn gói tại Hà Nội, miễn phí mực in và bảo trì 24/7.' }
   ];
-  var CATS = jget('puc_categories', null);
+  var CATS = jget('puc_categories_v2', null);
   if (!Array.isArray(CATS) || !CATS.length) {
     CATS = DEFAULT_CATS;
-    jset('puc_categories', CATS);
+    jset('puc_categories_v2', CATS);
   }
   function catObj(id) { for (var i = 0; i < CATS.length; i++) if (CATS[i].id === id) return CATS[i]; return null; }
   function catName(id) { var c = catObj(id); return c ? c.name : 'Tất cả sản phẩm'; }
@@ -234,7 +244,8 @@
       logo: CFG.siteUrl + 'img/site/logo.png',
       image: CFG.siteUrl + 'img/site/logo-og.png',
       taxID: CFG.mst,
-      telephone: '+84906273927',
+      telephone: '+84907586969',
+      award: 'Master Dealer chính thức của Fujifilm tại Việt Nam · Giải nhất cuộc thi tay nghề kỹ thuật đại lý Fujifilm 2026',
       priceRange: '₫₫',
       address: {
         '@type': 'PostalAddress',
@@ -386,41 +397,43 @@
     var el = $('#ql-top'); if (!el) return;
     var act = function (k) { return PAGE === k ? ' active' : ''; };
     var tickerSegment =
-      '<span class="tb-item"><i class="fa fa-map-marker"></i>' + esc(CFG.address) + '</span>' +
+      '<span class="tb-item"><i class="fa fa-trophy"></i>Master Dealer Chính Thức Fujifilm Việt Nam · Giải Nhất Tay Nghề 2026</span>' +
+      '<span class="tb-sep">•</span>' +
+      '<span class="tb-item"><i class="fa fa-map-marker"></i>Trụ sở: ' + esc(CFG.address) + '</span>' +
+      '<span class="tb-sep">•</span>' +
+      '<span class="tb-item"><i class="fa fa-building"></i>VPGD: ' + esc(CFG.branchAddress) + '</span>' +
       '<span class="tb-sep">•</span>' +
       '<span class="tb-item"><i class="fa fa-shield"></i>MST: ' + CFG.mst + '</span>' +
       '<span class="tb-sep">•</span>' +
       (CFG.email ? '<span class="tb-item"><i class="fa fa-envelope"></i><a href="mailto:' + esc(CFG.email) + '">' + esc(CFG.email) + '</a></span><span class="tb-sep">•</span>' : '') +
-      '<span class="tb-item"><i class="fa fa-phone"></i>Hotline: <a href="' + tel(CFG.hotline) + '" data-track="hotline"><strong>' + CFG.hotline + '</strong></a></span>' +
+      '<span class="tb-item"><i class="fa fa-phone"></i>Mr. Phương: <a href="' + tel('0907586969') + '" data-track="hotline"><strong>' + CFG.hotline + '</strong></a> · CSKH: <a href="' + tel(CFG.hotline2) + '">' + CFG.hotline2 + '</a></span>' +
       '<span class="tb-sep">•</span>' +
       '<span class="tb-item"><i class="fa fa-facebook-square"></i><a href="' + CFG.facebook + '" target="_blank" rel="noopener" data-track="fanpage">Fanpage PUC</a></span>' +
-      '<span class="tb-sep">•</span>' +
-      '<span class="tb-item"><i class="fa fa-comments"></i><a href="' + CFG.zalo + '" target="_blank" rel="noopener" data-track="zalo">Zalo: ' + CFG.hotline + '</a></span>' +
       '<span class="tb-sep">•</span>';
     el.innerHTML =
       '<div class="topbar"><div class="container">' +
-        '<span class="tb-badge">MST: ' + CFG.mst + '</span>' +
+        '<span class="tb-badge">Master Dealer Fujifilm</span>' +
         '<div class="tb-marquee"><div class="tb-track">' + tickerSegment + tickerSegment + '</div></div>' +
       '</div></div>' +
       '<header class="header"><div class="container">' +
         '<button class="menu-toggle" aria-label="Mở menu" data-menu><i class="fa fa-bars"></i></button>' +
         '<a class="logo" href="' + ROOT + 'index.html" title="' + esc(CFG.name) + '">' +
           '<img width="74" height="68" src="' + ROOT + 'img/site/logo.png" alt="Logo PUC Office Equipment">' +
-          '<span class="logo-brand"><strong>PUC OFFICE</strong><span>Thiết bị văn phòng</span><small>Chính hãng · ' + CFG.hotline + '</small></span>' +
+          '<span class="logo-brand"><strong>PUC OFFICE</strong><span>Master Dealer Fujifilm VN</span><small>Mr. Phương · ' + CFG.hotline + '</small></span>' +
         '</a>' +
         '<div class="search-wrap">' +
           '<form class="search" action="' + ROOT + 'pages/products.html" method="get" role="search">' +
             '<select name="cat" aria-label="Chọn danh mục"><option value="">Tất cả danh mục</option>' +
               CATS.filter(function (c) { return c.id !== 'cho-thue'; }).map(function (c) { return '<option value="' + c.id + '">' + esc(c.name) + '</option>'; }).join('') +
             '</select>' +
-            '<input type="search" id="q-input" name="q" placeholder="Tìm máy photocopy Canon, Ricoh, máy in, máy scan..." autocomplete="off" value="' + esc(qs('q')) + '">' +
+            '<input type="search" id="q-input" name="q" placeholder="Tìm Fujifilm Apeos, ApeosPrint, Canon, Ricoh, phần mềm..." autocomplete="off" value="' + esc(qs('q')) + '">' +
             '<button type="submit"><i class="fa fa-search"></i> Tìm kiếm</button>' +
           '</form>' +
           '<div class="suggest" id="q-suggest"></div>' +
         '</div>' +
         '<div class="h-actions">' +
-          '<a class="hotline" href="' + tel(CFG.hotline) + '" data-track="hotline"><span class="ic"><i class="fa fa-phone"></i></span><span><small>Hotline tư vấn 24/7</small><strong>' + CFG.hotline + '</strong></span></a>' +
-          '<button class="btn-quote-top" data-lead="Báo giá nhanh" data-title="Yêu cầu báo giá nhanh"><i class="fa fa-file-text-o"></i> Báo giá nhanh</button>' +
+          '<a class="hotline" href="' + tel('0907586969') + '" data-track="hotline"><span class="ic"><i class="fa fa-phone"></i></span><span><small>Mr. Phương · Hotline 24/7</small><strong>' + CFG.hotline + '</strong></span></a>' +
+          '<button class="btn-quote-top" data-lead="Báo giá Master Dealer Fujifilm" data-title="Yêu cầu báo giá ưu đãi"><i class="fa fa-file-text-o"></i> Báo giá nhanh</button>' +
           '<a class="cart-link" href="' + ROOT + 'pages/cart.html"><i class="fa fa-shopping-cart"></i><span>Giỏ hàng</span><span class="cart-count" style="display:none">0</span></a>' +
         '</div>' +
       '</div></header>' +
@@ -428,10 +441,10 @@
         '<div class="nav-cat"><button class="nav-cat-btn" data-catbtn><i class="fa fa-bars"></i><span>Danh mục sản phẩm</span><i class="fa fa-angle-down"></i></button>' + (PAGE === 'home' ? '' : catListHTML()) + '</div>' +
         '<div class="nav-links" id="nav-links">' +
           '<a class="' + act('home') + '" href="' + ROOT + 'index.html"><i class="fa fa-home"></i> Trang chủ</a>' +
+          '<a href="' + listLink('', 'Fujifilm') + '">Fujifilm chính hãng</a>' +
           '<a href="' + listLink('may-photocopy') + '">Máy photocopy</a>' +
           '<a href="' + listLink('may-in') + '">Máy in</a>' +
-          '<a href="' + listLink('may-scan') + '">Máy scan</a>' +
-          '<a href="' + listLink('hut-am') + '">Máy hút ẩm</a>' +
+          '<a href="' + listLink('phan-mem') + '">Phần mềm Fujifilm</a>' +
           '<a class="' + act('rental') + '" href="' + ROOT + 'pages/rental-service.html">Cho thuê máy</a>' +
           '<a class="' + act('about') + '" href="' + ROOT + 'pages/about.html">Giới thiệu</a>' +
           '<a class="' + act('contact') + '" href="' + ROOT + 'pages/contact.html">Liên hệ</a>' +
@@ -473,8 +486,10 @@
           '<p style="color:#fff;font-weight:800;margin-bottom:4px">' + esc(CFG.name) + '</p>' +
           '<p style="font-size:12px;color:#94A3B8;margin-bottom:10px">' + esc(CFG.shortNameIntl) + '</p>' +
           '<ul>' +
-            '<li><i class="fa fa-map-marker"></i>' + esc(CFG.address) + '</li>' +
-            '<li><i class="fa fa-phone"></i>Hotline / Zalo: <a href="' + tel(CFG.hotline) + '" data-track="hotline"><strong>' + CFG.hotline + '</strong></a></li>' +
+            '<li><i class="fa fa-trophy"></i>Master Dealer Fujifilm VN · Giải nhất Tay nghề 2026</li>' +
+            '<li><i class="fa fa-map-marker"></i>Trụ sở: ' + esc(CFG.address) + '</li>' +
+            '<li><i class="fa fa-building"></i>VPGD: ' + esc(CFG.branchAddress) + '</li>' +
+            '<li><i class="fa fa-phone"></i>Mr. Phương: <a href="' + tel('0907586969') + '" data-track="hotline"><strong>' + CFG.hotline + '</strong></a> · CSKH/Zalo: <a href="' + CFG.zalo + '" target="_blank">' + CFG.hotline2 + '</a></li>' +
             (CFG.tels && CFG.tels.length ? '<li><i class="fa fa-phone-square"></i>Điện thoại: ' + esc(CFG.tels.join(' · ')) + '</li>' : '') +
             (CFG.email ? '<li><i class="fa fa-envelope"></i><a href="mailto:' + esc(CFG.email) + '">' + esc(CFG.email) + '</a></li>' : '') +
             (CFG.openingHours ? '<li><i class="fa fa-clock-o"></i>Giờ mở cửa: ' + esc(CFG.openingHours) + '</li>' : '') +
@@ -638,11 +653,14 @@
       if (/giao hang|van chuyen|ship|lap dat/.test(n)) {
         return 'PUC Office Equipment hỗ trợ <b>giao hàng & lắp đặt tận nơi tại Hà Nội</b>, kỹ thuật viên hướng dẫn vận hành chi tiết.';
       }
-      if (/dia chi|o dau|showroom|cua hang/.test(n)) {
-        return 'Trụ sở & Văn phòng PUC Office Equipment: <b>' + esc(CFG.address) + '</b>.<br><a href="' + ROOT + 'pages/contact.html">Xem bản đồ chỉ đường »</a>';
+      if (/fujifilm|master dealer|apeos|giai nhat|tay nghe/.test(n)) {
+        return '<b>CÔNG TY PUC là Master Dealer chính thức của Fujifilm tại Việt Nam</b> (cấp độ đối tác cao nhất, Giải nhất cuộc thi tay nghề kỹ thuật đại lý Fujifilm năm 2026):<br>• Cam kết 100% chính hãng đầy đủ <b>CO, CQ</b>, giá Master Dealer tốt nhất.<br>• Tư vấn 1-1 bởi chuyên gia Fujifilm chứng chỉ toàn cầu & hỗ trợ kỹ thuật 24/7.<br>• Liên hệ <b>Mr. Phương: <a href="' + tel('0907586969') + '">' + CFG.hotline + '</a></b> · <a href="' + listLink('', 'Fujifilm') + '">Xem hệ sinh thái Fujifilm »</a>';
+      }
+      if (/dia chi|o dau|showroom|cua hang|bach dang|cau dat/.test(n)) {
+        return '<b>Địa chỉ Công ty PUC:</b><br>• <b>Trụ sở:</b> ' + esc(CFG.address) + '<br>• <b>Văn phòng giao dịch:</b> ' + esc(CFG.branchAddress) + '<br>• <b>Mr. Phương:</b> <a href="' + tel('0907586969') + '">' + CFG.hotline + '</a><br><a href="' + ROOT + 'pages/contact.html">Xem bản đồ chỉ đường »</a>';
       }
       if (/^(xin chao|chao|hello|hi|alo)\b/.test(n)) {
-        return 'Xin chào Quý khách! Em là Trợ lý AI của <b>PUC Office Equipment</b>. Quý khách có thể hỏi theo <b>tên máy</b> (VD: Canon 2425, Ricoh 3000), theo <b>ngân sách</b> (VD: "máy dưới 10 triệu") hoặc chọn nhanh chủ đề bên dưới ạ!';
+        return 'Xin chào Quý khách! Em là Trợ lý AI của <b>PUC – Master Dealer Chính Thức Fujifilm tại Việt Nam</b>. Quý khách có thể tìm <b>Fujifilm Apeos / ApeosPrint / Phần mềm</b>, Canon, Ricoh hoặc liên hệ <b>Mr. Phương: ' + CFG.hotline + '</b> ạ!';
       }
       var found = find(raw);
       if (found.length) {
@@ -732,7 +750,7 @@
     // Top Sản phẩm bán chạy nhất (cột phải Hero)
     var topBox = $('#hero-top-bestsellers');
     if (topBox) {
-      var topIds = ['QL009', 'QL177', 'QL011', 'QL014'];
+      var topIds = ['FF002', 'FF008', 'FF012', 'QL009'];
       var topList = topIds.map(byId).filter(Boolean);
       if (topList.length < 4) {
         topList = pricedFirst(P).slice(0, 4);
@@ -756,7 +774,7 @@
     }
     var qb = $('#home-qcat');
     if (qb) {
-      qb.innerHTML = CATS.slice(0, 8).map(function (c) {
+      qb.innerHTML = CATS.slice(0, 9).map(function (c) {
         var cnt = inCat(c.id).length;
         var href = c.id === 'cho-thue' ? 'pages/rental-service.html' : listLink(c.id);
         return '<a class="qcat" href="' + href + '"><span class="qi"><i class="fa ' + (c.icon || 'fa-folder') + '"></i></span><span>' + esc(c.name) + '</span><small>' + cnt + ' sản phẩm</small></a>';
@@ -797,8 +815,9 @@
       a.href = f ? plink(f) : listLink('may-photocopy');
     });
     var blocks = [
-      { t: 'Máy Photocopy Chính Hãng', icon: 'fa-files-o', cats: ['may-photocopy'] },
-      { t: 'Máy In Văn Phòng', icon: 'fa-print', cats: ['may-in'] },
+      { t: 'Máy Photocopy Fujifilm & Chính Hãng', icon: 'fa-files-o', cats: ['may-photocopy'] },
+      { t: 'Máy In Văn Phòng Fujifilm & Đa Hãng', icon: 'fa-print', cats: ['may-in'] },
+      { t: 'Phần Mềm & Giải Pháp Đám Mây Fujifilm', icon: 'fa-cloud', cats: ['phan-mem'] },
       { t: 'Máy Scan & Máy Hủy Tài Liệu', icon: 'fa-file-image-o', cats: ['may-scan', 'may-huy'] },
       { t: 'Máy Hút Ẩm & Lọc Không Khí', icon: 'fa-tint', cats: ['hut-am'] },
       { t: 'Máy Quét Mã Vạch & Vật Tư Linh Kiện', icon: 'fa-barcode', cats: ['ma-vach', 'vat-tu'] }
@@ -880,7 +899,8 @@
       if (state.sort === 'asc') list.sort(function (a, b) { return (a.price || 9e12) - (b.price || 9e12); });
       else if (state.sort === 'desc') list.sort(function (a, b) { return b.price - a.price; });
       else if (state.sort === 'name') list.sort(function (a, b) { return a.name.localeCompare(b.name, 'vi'); });
-      else list = pricedFirst(list);
+      else if (!state.brand) list = pricedFirst(list);
+      else list = list.slice();
       var pages = Math.max(1, Math.ceil(list.length / per)); state.page = Math.min(state.page, pages);
       var cur = list.slice((state.page - 1) * per, state.page * per);
 
@@ -1049,7 +1069,7 @@
           '</div>' +
         '</div>' +
       '</div>' +
-      '<div class="tabpane" id="t2"><ul class="speclist"><li><b>Đặt hàng trực tuyến:</b> Bấm "Đặt mua ngay", chọn hình thức thanh toán hoặc COD để hoàn tất đơn hàng trực tuyến.</li><li><b>Hotline kinh doanh:</b> ' + CFG.hotline + (CFG.tels && CFG.tels.length ? ' (Văn phòng: ' + esc(CFG.tels.join(', ')) + ')' : '') + '</li><li><b>Chat Zalo / Fanpage:</b> <a href="' + CFG.zalo + '" target="_blank" style="color:#0068FF;font-weight:700">Zalo ' + CFG.hotline + '</a> · <a href="' + CFG.facebook + '" target="_blank" style="color:#1877F2;font-weight:700">Fanpage PUC</a></li><li><b>Trụ sở:</b> ' + esc(CFG.address) + '</li></ul></div>' +
+      '<div class="tabpane" id="t2"><ul class="speclist"><li><b>Đặt hàng trực tuyến:</b> Bấm "Đặt mua ngay", chọn hình thức thanh toán hoặc COD để hoàn tất đơn hàng trực tuyến.</li><li><b>Hotline Master Dealer (Mr. Phương):</b> <a href="' + tel('0907586969') + '" style="color:#0B6EC1;font-weight:700">' + CFG.hotline + '</a> · CSKH/Zalo: <a href="' + CFG.zalo + '" target="_blank" style="color:#0068FF;font-weight:700">' + CFG.hotline2 + '</a></li><li><b>Fanpage:</b> <a href="' + CFG.facebook + '" target="_blank" style="color:#1877F2;font-weight:700">Fanpage PUC</a></li><li><b>Trụ sở:</b> ' + esc(CFG.address) + '</li><li><b>Văn phòng giao dịch:</b> ' + esc(CFG.branchAddress) + '</li></ul></div>' +
       '<div class="tabpane" id="t3"><p>PUC Office Equipment cung cấp đầy đủ hộp mực, trống (drum), cụm sấy và linh kiện thay thế chính hãng cho ' + esc(p.name) + '. <a href="' + listLink('vat-tu') + '" style="color:#0B6EC1;font-weight:700">Xem danh mục vật tư - linh kiện »</a></p></div>' +
       '<section class="section" style="margin-top:20px"><div class="sec-head"><h2 class="sec-title">Sản phẩm cùng danh mục</h2></div><div class="sec-body" id="pd-rel"></div></section>';
 

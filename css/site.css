@@ -375,7 +375,7 @@ input,select,textarea{font-family:inherit;font-size:14px;color:var(--ink)}
 
 /* Quick category pills (3D Pedestals) */
 .qcat-bar{
-  display:grid;grid-template-columns:repeat(8,1fr);gap:12px;margin-top:16px;
+  display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:10px;margin-top:16px;
   background:linear-gradient(180deg,#FFFFFF,#F8FAFC);padding:16px;
   border-radius:var(--radius);border:1px solid var(--line);box-shadow:var(--shadow);
 }
@@ -814,7 +814,7 @@ table.cart td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-ali
 @media(max-width:1100px){
   .home-hero .row{grid-template-columns:1fr 310px}
   .hero-cat{display:none}
-  .qcat-bar{grid-template-columns:repeat(4,1fr)}
+  .qcat-bar{grid-template-columns:repeat(3,minmax(0,1fr))}
   .brands{grid-template-columns:repeat(4,1fr)}
   .btn-quote-top{display:none}
 }
@@ -842,7 +842,7 @@ table.cart td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-ali
 @media(max-width:600px){
   .container{padding:0 12px}
   .grid,.grid.g4{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  .qcat-bar{grid-template-columns:repeat(4,1fr);gap:6px;padding:10px}
+  .qcat-bar{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:10px}
   .brands{grid-template-columns:repeat(3,1fr)}
   .header .container{flex-wrap:wrap;gap:10px}
   .search-wrap{order:3;flex-basis:100%;max-width:none}
@@ -862,4 +862,58 @@ table.cart td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-ali
   table.cart td{display:flex;justify-content:space-between;border:0;padding:4px 8px}
   .chat{left:8px;bottom:8px;height:78vh}
 }
+
+/* ---------- PUC x Fujifilm Master Dealer 3D Showcase ---------- */
+.ff-master{
+  margin-top:24px;border-radius:var(--radius-lg);padding:28px 30px;color:#fff;position:relative;overflow:hidden;
+  background:radial-gradient(620px circle at 85% 18%, rgba(56,189,248,.22), transparent 62%),
+             linear-gradient(135deg,#07192E 0%,#0B4C8A 55%,#0B6EC1 100%);
+  box-shadow:var(--shadow-3d);border:1px solid rgba(147,197,253,.28);
+}
+.ff-master-top{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.95fr);gap:24px;align-items:center}
+.ff-pill-tag{
+  display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:20px;
+  background:rgba(255,255,255,.14);border:1px solid rgba(253,224,71,.48);color:#FDE047;
+  font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;
+}
+.ff-master h2{font-size:24px;font-weight:900;line-height:1.25;color:#fff;margin-bottom:6px}
+.ff-master .ff-sub{font-size:15px;font-weight:700;color:#7DD3FC;margin-bottom:10px}
+.ff-master .ff-desc{font-size:14px;color:#E2E8F0;line-height:1.65;margin-bottom:16px}
+.ff-master-cta{display:flex;flex-wrap:wrap;gap:10px}
+.ff-master-panel{
+  background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.22);
+  border-radius:var(--radius);padding:20px;box-shadow:0 14px 32px rgba(0,0,0,.28);
+}
+.ff-award-badge{
+  display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;margin-bottom:14px;
+  background:linear-gradient(135deg,rgba(253,224,71,.22),rgba(245,158,11,.14));border:1px solid rgba(253,224,71,.5);
+}
+.ff-award-badge i{font-size:28px;color:#FDE047;flex-shrink:0}
+.ff-award-badge b{display:block;color:#FDE047;font-size:14px;text-transform:uppercase}
+.ff-award-badge span{display:block;font-size:12.5px;color:#F8FAFC}
+.ff-quick-links{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.ff-quick-links a{
+  display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border-radius:8px;
+  background:rgba(15,23,42,.55);border:1px solid rgba(255,255,255,.16);color:#fff;font-size:12.5px;font-weight:700;transition:.18s;
+}
+.ff-quick-links a:hover{background:#fff;color:var(--red);transform:translateY(-1px)}
+.ff-contact-bar{
+  display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:space-between;
+  padding-top:12px;border-top:1px solid rgba(255,255,255,.18);font-size:13px;color:#E0F2FE;
+}
+.ff-contact-bar strong{color:#FDE047;font-size:15px}
+.ff-pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+.ff-pillar{
+  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius);
+  padding:16px;transition:transform .22s,background .22s;
+}
+.ff-pillar:hover{transform:translateY(-4px);background:rgba(255,255,255,.15)}
+.ff-pillar .num{
+  display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;
+  background:#fff;color:var(--red);font-weight:900;font-size:13px;margin-bottom:8px;
+}
+.ff-pillar h3{font-size:13.5px;font-weight:800;color:#FDE047;text-transform:uppercase;margin-bottom:5px}
+.ff-pillar p{font-size:12.8px;color:#E2E8F0;line-height:1.5}
+@media(max-width:1100px){.ff-master-top{grid-template-columns:1fr}.ff-pillars{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.ff-master{padding:20px 16px}.ff-pillars,.ff-quick-links{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
