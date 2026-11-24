@@ -22,13 +22,13 @@
     address: 'Số 21, ngõ 75 Cầu Đất, Phường Hồng Hà, Thành phố Hà Nội, Việt Nam',
     branchAddress: '393 Bạch Đằng, Phường Hồng Hà, Thành phố Hà Nội',
     hotline: '090.758.6969',
-    hotline2: '0906 273 927',
+    hotline2: '',
     hotline3: '',
     tels: [],
     email: '',
     web: '',
     siteUrl: 'https://puc-ecommerce.vercel.app/',
-    zalo: 'https://zalo.me/0906273927',
+    zalo: 'https://zalo.me/0907586969',
     facebook: 'https://www.facebook.com/p/C%C3%B4ng-ty-TNHH-Unlimitted-Photocopy-100064020552993/',
     messenger: '',
     leadEndpoint: '',
@@ -80,6 +80,15 @@
   /* ---------- Đồng bộ Cài đặt từ Admin (nếu Admin đã chỉnh sửa) ---------- */
   var savedCfg = jget('puc_settings', null);
   if (savedCfg) {
+    if (/0906[\s.]?273[\s.]?927/.test(savedCfg.hotline || '')) {
+      savedCfg.hotline = '090.758.6969';
+      if (/0906[\s.]?273[\s.]?927/.test(savedCfg.phone || '')) savedCfg.phone = '0907586969';
+      jset('puc_settings', savedCfg);
+    }
+    if (/0906[\s.]?273[\s.]?927/.test(savedCfg.phone || '')) {
+      savedCfg.phone = '0907586969';
+      jset('puc_settings', savedCfg);
+    }
     if (savedCfg.companyName) CFG.name = savedCfg.companyName;
     if (savedCfg.address) CFG.address = savedCfg.address;
     if (savedCfg.branchAddress) CFG.branchAddress = savedCfg.branchAddress;
@@ -406,7 +415,7 @@
       '<span class="tb-item"><i class="fa fa-shield"></i>MST: ' + CFG.mst + '</span>' +
       '<span class="tb-sep">•</span>' +
       (CFG.email ? '<span class="tb-item"><i class="fa fa-envelope"></i><a href="mailto:' + esc(CFG.email) + '">' + esc(CFG.email) + '</a></span><span class="tb-sep">•</span>' : '') +
-      '<span class="tb-item"><i class="fa fa-phone"></i>Mr. Phương: <a href="' + tel('0907586969') + '" data-track="hotline"><strong>' + CFG.hotline + '</strong></a> · CSKH: <a href="' + tel(CFG.hotline2) + '">' + CFG.hotline2 + '</a></span>' +
+      '<span class="tb-item"><i class="fa fa-phone"></i>Mr. Phương: <a href="' + tel('0907586969') + '" data-track="hotline"><strong>' + CFG.hotline + '</strong></a> · <a href="' + CFG.zalo + '" target="_blank" rel="noopener" data-track="zalo">Zalo: 0907586969</a></span>' +
       '<span class="tb-sep">•</span>' +
       '<span class="tb-item"><i class="fa fa-facebook-square"></i><a href="' + CFG.facebook + '" target="_blank" rel="noopener" data-track="fanpage">Fanpage PUC</a></span>' +
       '<span class="tb-sep">•</span>';
@@ -489,7 +498,7 @@
             '<li><i class="fa fa-trophy"></i>Master Dealer Fujifilm VN · Giải nhất Tay nghề 2026</li>' +
             '<li><i class="fa fa-map-marker"></i>Trụ sở: ' + esc(CFG.address) + '</li>' +
             '<li><i class="fa fa-building"></i>VPGD: ' + esc(CFG.branchAddress) + '</li>' +
-            '<li><i class="fa fa-phone"></i>Mr. Phương: <a href="' + tel('0907586969') + '" data-track="hotline"><strong>' + CFG.hotline + '</strong></a> · CSKH/Zalo: <a href="' + CFG.zalo + '" target="_blank">' + CFG.hotline2 + '</a></li>' +
+            '<li><i class="fa fa-phone"></i>Mr. Phương: <a href="' + tel('0907586969') + '" data-track="hotline"><strong>' + CFG.hotline + '</strong></a> · <a href="' + CFG.zalo + '" target="_blank" data-track="zalo">Zalo: 0907586969</a></li>' +
             (CFG.tels && CFG.tels.length ? '<li><i class="fa fa-phone-square"></i>Điện thoại: ' + esc(CFG.tels.join(' · ')) + '</li>' : '') +
             (CFG.email ? '<li><i class="fa fa-envelope"></i><a href="mailto:' + esc(CFG.email) + '">' + esc(CFG.email) + '</a></li>' : '') +
             (CFG.openingHours ? '<li><i class="fa fa-clock-o"></i>Giờ mở cửa: ' + esc(CFG.openingHours) + '</li>' : '') +
@@ -1069,7 +1078,7 @@
           '</div>' +
         '</div>' +
       '</div>' +
-      '<div class="tabpane" id="t2"><ul class="speclist"><li><b>Đặt hàng trực tuyến:</b> Bấm "Đặt mua ngay", chọn hình thức thanh toán hoặc COD để hoàn tất đơn hàng trực tuyến.</li><li><b>Hotline Master Dealer (Mr. Phương):</b> <a href="' + tel('0907586969') + '" style="color:#0B6EC1;font-weight:700">' + CFG.hotline + '</a> · CSKH/Zalo: <a href="' + CFG.zalo + '" target="_blank" style="color:#0068FF;font-weight:700">' + CFG.hotline2 + '</a></li><li><b>Fanpage:</b> <a href="' + CFG.facebook + '" target="_blank" style="color:#1877F2;font-weight:700">Fanpage PUC</a></li><li><b>Trụ sở:</b> ' + esc(CFG.address) + '</li><li><b>Văn phòng giao dịch:</b> ' + esc(CFG.branchAddress) + '</li></ul></div>' +
+      '<div class="tabpane" id="t2"><ul class="speclist"><li><b>Đặt hàng trực tuyến:</b> Bấm "Đặt mua ngay", chọn hình thức thanh toán hoặc COD để hoàn tất đơn hàng trực tuyến.</li><li><b>Hotline / Zalo Master Dealer (Mr. Phương):</b> <a href="' + tel('0907586969') + '" style="color:#0B6EC1;font-weight:700">' + CFG.hotline + '</a> · <a href="' + CFG.zalo + '" target="_blank" style="color:#0068FF;font-weight:700">Chat Zalo 0907586969</a></li><li><b>Fanpage:</b> <a href="' + CFG.facebook + '" target="_blank" style="color:#1877F2;font-weight:700">Fanpage PUC</a></li><li><b>Trụ sở:</b> ' + esc(CFG.address) + '</li><li><b>Văn phòng giao dịch:</b> ' + esc(CFG.branchAddress) + '</li></ul></div>' +
       '<div class="tabpane" id="t3"><p>PUC Office Equipment cung cấp đầy đủ hộp mực, trống (drum), cụm sấy và linh kiện thay thế chính hãng cho ' + esc(p.name) + '. <a href="' + listLink('vat-tu') + '" style="color:#0B6EC1;font-weight:700">Xem danh mục vật tư - linh kiện »</a></p></div>' +
       '<section class="section" style="margin-top:20px"><div class="sec-head"><h2 class="sec-title">Sản phẩm cùng danh mục</h2></div><div class="sec-body" id="pd-rel"></div></section>';
 

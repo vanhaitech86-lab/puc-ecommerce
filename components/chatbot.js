@@ -23,7 +23,7 @@
 • <strong>Máy in HP LaserJet M404dn</strong>: 8.500.000đ
 • <strong>Máy hủy tài liệu Bosai 8100C</strong>: 2.350.000đ
 
-Quý khách để lại SĐT hoặc gọi Hotline <a href="tel:0906273927" class="text-blue-600 font-bold underline">0906.273.927</a> để nhận báo giá chiết khấu dự án tốt nhất ạ!`
+Quý khách để lại SĐT hoặc gọi Hotline <a href="tel:0907586969" class="text-blue-600 font-bold underline">090.758.6969</a> để nhận báo giá chiết khấu dự án tốt nhất ạ!`
     },
     rental: {
       keywords: ["thuê", "cho thuê", "thuê máy", "mướn", "bảng giá thuê"],
@@ -33,7 +33,7 @@ Quý khách để lại SĐT hoặc gọi Hotline <a href="tel:0906273927" class
 3. <strong>Gói Cao Cấp (35-75 bản/phút)</strong>: 2.000.000đ - 3.000.000đ/tháng
 
 ⭐ <em>Ưu đãi: Miễn phí toàn bộ mực in, linh kiện và kỹ thuật bảo trì định kỳ tận nơi!</em>
-Quý khách có thể xem chi tiết tại mục <strong>Cho Thuê</strong> hoặc liên hệ ngay <a href="tel:0906273927" class="text-blue-600 font-bold underline">0906.273.927</a>.`
+Quý khách có thể xem chi tiết tại mục <strong>Cho Thuê</strong> hoặc liên hệ ngay <a href="tel:0907586969" class="text-blue-600 font-bold underline">090.758.6969</a>.`
     },
     warranty: {
       keywords: ["bảo hành", "chính sách", "đổi trả", "hậu mãi"],
@@ -48,21 +48,21 @@ Quý khách có thể xem chi tiết tại mục <strong>Cho Thuê</strong> ho�
 📍 <strong>Số 21, ngõ 75 Cầu Đất, Phường Hồng Hà, Thành phố Hà Nội, Việt Nam</strong>
 🏢 MST: 0107485011
 ⏰ Giờ làm việc: 8h00 - 18h00 (Thứ 2 đến Thứ 7)
-☎ Hotline tư vấn: <a href="tel:0906273927" class="text-blue-600 font-bold underline">0906 273 927</a> | <a href="tel:0906273927" class="text-blue-600 font-bold underline">0906 273 927</a>`
+☎ Hotline tư vấn: <a href="tel:0907586969" class="text-blue-600 font-bold underline">090.758.6969</a> | <a href="tel:0907586969" class="text-blue-600 font-bold underline">090.758.6969</a>`
     },
     repair: {
       keywords: ["sửa", "sửa chữa", "bảo trì", "kẹt giấy", "hỏng", "sự cố", "đổ mực", "nạp mực"],
       response: `Dạ đội ngũ kỹ thuật PUC Office hỗ trợ sửa chữa & đổ mực tận nơi tại Hà Nội:
 • Sửa máy photocopy, máy in kẹt giấy, mờ chữ, sọc đen, không nhận mạng.
 • Đổ mực in chính hãng giá tốt, bảo hành chất lượng bản in.
-• Hotline kỹ thuật 24/7: <a href="tel:0906273927" class="text-red-600 font-bold underline">0906.273.927</a> / <a href="tel:0906273927" class="text-blue-600 font-bold underline">0906.273.927</a>.`
+• Hotline kỹ thuật 24/7: <a href="tel:0907586969" class="text-red-600 font-bold underline">090.758.6969</a> / <a href="tel:0907586969" class="text-blue-600 font-bold underline">090.758.6969</a>.`
     },
     contact: {
       keywords: ["liên hệ", "hotline", "số điện thoại", "sđt", "gọi", "zalo", "email"],
       response: `Dạ thông tin liên hệ trực tiếp Công ty PUC Office:
-📞 Hotline: <strong>0906 273 927 | 0906 273 927 | 0987 782 626</strong>
-☎ Bàn văn phòng: 0906.273.927 | 024.3565.7494
-💬 Zalo: <a href="https://zalo.me/0906273927" target="_blank" class="text-blue-600 font-bold underline">0906 273 927 (PUC Office)</a>
+📞 Hotline: <strong>090.758.6969</strong>
+☎ Bàn văn phòng: 090.758.6969
+💬 Zalo: <a href="https://zalo.me/0907586969" target="_blank" class="text-blue-600 font-bold underline">090.758.6969 (PUC Office)</a>
 📧 Email: 
 Chuyên viên kỹ thuật luôn sẵn sàng hỗ trợ quý khách!`
     }
@@ -293,7 +293,7 @@ Chuyên viên kỹ thuật luôn sẵn sàng hỗ trợ quý khách!`
           addMessage(`Dạ câu hỏi của quý khách đã được ghi nhận. Để được hỗ trợ nhanh nhất và chính xác theo nhu cầu thiết bị, quý khách vui lòng để lại <strong>Số Điện Thoại</strong> tại đây hoặc gọi trực tiếp Hotline kỹ thuật:
 <div class="mt-2.5 p-2 bg-blue-50 border border-blue-200 rounded-lg text-center">
   <span class="text-xs text-gray-600 block mb-0.5">Hotline hỗ trợ trực tiếp 24/7:</span>
-  <a href="tel:0906273927" class="text-red-600 font-extrabold text-base block hover:underline">0906.273.927</a>
+  <a href="tel:0907586969" class="text-red-600 font-extrabold text-base block hover:underline">090.758.6969</a>
 </div>`, 'bot');
         }
       }, 700);

@@ -111,7 +111,7 @@ const PaymentGateway = (function () {
         <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-800 flex items-start gap-2.5 mt-3">
           <i class="fa-solid fa-circle-exclamation text-amber-600 mt-0.5 text-sm flex-shrink-0"></i>
           <div>
-            <strong>Lưu ý:</strong> Vui lòng liên hệ hotline <a href="tel:0906273927" class="font-bold underline text-red-600">0906.273.927</a> để xác nhận đơn hàng, tư vấn xuất hóa đơn VAT điện tử và hướng dẫn thanh toán chi tiết.
+            <strong>Lưu ý:</strong> Vui lòng liên hệ hotline <a href="tel:0907586969" class="font-bold underline text-red-600">090.758.6969</a> để xác nhận đơn hàng, tư vấn xuất hóa đơn VAT điện tử và hướng dẫn thanh toán chi tiết.
           </div>
         </div>
       </div>
@@ -200,7 +200,7 @@ const PaymentGateway = (function () {
         <div class="p-4 bg-white border border-gray-200 rounded-xl text-center space-y-2">
           <div class="text-[#A50064] font-bold text-sm">Ví Điện Tử MoMo</div>
           <p class="text-xs text-gray-500 max-w-sm mx-auto">
-            Quý khách quét mã MoMo hoặc chuyển đến số hotline đại diện kế toán: <strong>0906 273 927</strong> (PUC Office Office).
+            Quý khách quét mã MoMo hoặc chuyển đến số hotline đại diện kế toán: <strong>090.758.6969</strong> (PUC Office Equipment).
           </p>
         </div>
       `;
@@ -211,7 +211,7 @@ const PaymentGateway = (function () {
         <div class="p-4 bg-white border border-gray-200 rounded-xl text-center space-y-2">
           <div class="text-[#0068FF] font-bold text-sm">Ví Điện Tử ZaloPay</div>
           <p class="text-xs text-gray-500 max-w-sm mx-auto">
-            Thanh toán qua ví ZaloPay hoặc liên hệ Zalo số: <strong>0906 273 927</strong> để kế toán gửi mã QR xác thực giao dịch nhanh.
+            Thanh toán qua ví ZaloPay hoặc liên hệ Zalo số: <strong>090.758.6969</strong> để kế toán gửi mã QR xác thực giao dịch nhanh.
           </p>
         </div>
       `;

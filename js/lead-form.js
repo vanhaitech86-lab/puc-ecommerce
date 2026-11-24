@@ -81,7 +81,7 @@
                   type="tel" 
                   name="phone" 
                   required 
-                  placeholder="Ví dụ: 0906 273 927"
+                  placeholder="Ví dụ: 090.758.6969"
                   class="w-full pl-9 pr-3 py-2 text-sm bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 focus:bg-white text-gray-900"
                 />
               </div>
@@ -123,14 +123,14 @@
           <!-- Direct Channels -->
           <div class="mt-4 pt-3.5 border-t border-gray-100 flex items-center justify-center gap-4 text-xs text-gray-500">
             <span>Hoặc kết nối trực tiếp:</span>
-            <a href="https://zalo.me/0906273927" target="_blank" class="flex items-center gap-1 font-bold text-blue-600 hover:underline">
+            <a href="https://zalo.me/0907586969" target="_blank" class="flex items-center gap-1 font-bold text-blue-600 hover:underline">
               <i class="fa-solid fa-comment-dots"></i> Zalo
             </a>
             <a href="https://wa.me/84913524260" target="_blank" class="flex items-center gap-1 font-bold text-green-600 hover:underline">
               <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
-            <a href="tel:0906273927" class="flex items-center gap-1 font-bold text-red-600 hover:underline">
-              <i class="fa-solid fa-phone"></i> 0906.273.927
+            <a href="tel:0907586969" class="flex items-center gap-1 font-bold text-red-600 hover:underline">
+              <i class="fa-solid fa-phone"></i> 090.758.6969
             </a>
           </div>
         </div>
@@ -146,7 +146,7 @@
           </p>
 
           <div class="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://zalo.me/0906273927" target="_blank" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition">
+            <a href="https://zalo.me/0907586969" target="_blank" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition">
               <i class="fa-solid fa-comment-dots"></i> Nhắn Tin Qua Zalo
             </a>
             <button type="button" id="close-success-btn" class="px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm font-semibold transition">

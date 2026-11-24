@@ -50,27 +50,27 @@ const PucChatbot = {
     address: {
       patterns: ["địa chỉ", "ở đâu", "showroom", "cửa hàng", "tìm đến", "văn phòng", "location"],
       responses: [
-        "📍 **Địa chỉ Trụ sở & Showroom PUC Office Equipment**:\n\n**Số 21, ngõ 75 Cầu Đất**\nPhường Hồng Hà, Thành phố Hà Nội, Việt Nam\n\n🕐 **Giờ làm việc**: 8:00 - 18:00 (Thứ 2 đến Thứ 7)\n📞 **Hotline hỗ trợ**: 0906.273.927\n\nShowroom có chỗ đỗ ô tô rộng rãi và máy mẫu chạy thử trực tiếp. Rất hân hạnh được đón tiếp bạn!"
+        "📍 **Địa chỉ Trụ sở & Showroom PUC Office Equipment**:\n\n**Số 21, ngõ 75 Cầu Đất**\nPhường Hồng Hà, Thành phố Hà Nội, Việt Nam\n\n🕐 **Giờ làm việc**: 8:00 - 18:00 (Thứ 2 đến Thứ 7)\n📞 **Hotline hỗ trợ**: 090.758.6969\n\nShowroom có chỗ đỗ ô tô rộng rãi và máy mẫu chạy thử trực tiếp. Rất hân hạnh được đón tiếp bạn!"
       ]
     },
     
     warranty: {
       patterns: ["bảo hành", "warranty", "bảo trì", "sửa chữa", "hỏng", "kẹt giấy", "bảo dưỡng"],
       responses: [
-        "Chính sách bảo hành và bảo trì vượt trội tại PUC Office Equipment:\n\n✅ **Bảo hành 12 - 24 tháng** chính hãng cho toàn bộ thiết bị mới\n✅ **Hỗ trợ kỹ thuật tại chỗ trong vòng 2 giờ** nội thành Hà Nội\n✅ Đội ngũ kỹ sư tay nghề cao, thay thế linh kiện chính hãng 100%\n✅ Bảo trì định kỳ miễn phí hàng tháng (đối với máy thuê hoặc hợp đồng dịch vụ)\n\nĐường dây nóng kỹ thuật khẩn cấp: **0906.273.927**"
+        "Chính sách bảo hành và bảo trì vượt trội tại PUC Office Equipment:\n\n✅ **Bảo hành 12 - 24 tháng** chính hãng cho toàn bộ thiết bị mới\n✅ **Hỗ trợ kỹ thuật tại chỗ trong vòng 2 giờ** nội thành Hà Nội\n✅ Đội ngũ kỹ sư tay nghề cao, thay thế linh kiện chính hãng 100%\n✅ Bảo trì định kỳ miễn phí hàng tháng (đối với máy thuê hoặc hợp đồng dịch vụ)\n\nĐường dây nóng kỹ thuật khẩn cấp: **090.758.6969**"
       ]
     },
     
     contact: {
       patterns: ["liên hệ", "gọi", "hotline", "số điện thoại", "email", "sđt", "zalo", "tư vấn"],
       responses: [
-        "📞 **Thông Tin Liên Hệ PUC Office Equipment**:\n\n• **Hotline kinh doanh:** 0906.273.927 | 0987.782.626\n• **Hỗ trợ kỹ thuật 24/7:** 0906.273.927\n• **Văn phòng công ty:** 0906.273.927\n• **Email:** \n• **Zalo OA:** 0906273927 (Công ty PUC Office Equipment)\n\nBạn có thể để lại số điện thoại ngay tại đây, chuyên viên tư vấn sẽ gọi lại cho bạn sau 5 phút!"
+        "📞 **Thông Tin Liên Hệ PUC Office Equipment**:\n\n• **Hotline kinh doanh:** 090.758.6969\n• **Hỗ trợ kỹ thuật 24/7:** 090.758.6969\n• **Văn phòng công ty:** 090.758.6969\n• **Email:** \n• **Zalo OA:** 0907586969 (Công ty PUC Office Equipment)\n\nBạn có thể để lại số điện thoại ngay tại đây, chuyên viên tư vấn sẽ gọi lại cho bạn sau 5 phút!"
       ]
     },
     
     default: {
       responses: [
-        "Tôi chưa hiểu rõ yêu cầu của bạn. Bạn có thể chọn câu hỏi nhanh bên dưới hoặc hỏi về:\n• Giá máy photocopy / máy in\n• Dịch vụ cho thuê máy trọn gói\n• Chính sách bảo hành, sửa chữa\n• Địa chỉ showroom & dùng thử\n\nHoặc gọi trực tiếp Hotline hỗ trợ nhanh: **0906.273.927**"
+        "Tôi chưa hiểu rõ yêu cầu của bạn. Bạn có thể chọn câu hỏi nhanh bên dưới hoặc hỏi về:\n• Giá máy photocopy / máy in\n• Dịch vụ cho thuê máy trọn gói\n• Chính sách bảo hành, sửa chữa\n• Địa chỉ showroom & dùng thử\n\nHoặc gọi trực tiếp Hotline hỗ trợ nhanh: **090.758.6969**"
       ]
     }
   },

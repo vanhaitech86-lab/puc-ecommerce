@@ -22,7 +22,7 @@ HƯỚNG DẪN MỞ VÀ SỬ DỤNG WEBSITE THƯƠNG MẠI ĐIỆN TỬ PUC OFFI
 - Pháp lý: CÔNG TY TNHH THƯƠNG MẠI VÀ DỊCH VỤ PUC (PUC TRADING AND SERVICES CO.,LTD)
 - Mã số thuế: 0107485011
 - Địa chỉ: Số 21, ngõ 75 Cầu Đất, Phường Hồng Hà, Thành phố Hà Nội, Việt Nam
-- Hotline / Zalo: 0906 273 927
+- Hotline / Zalo (Mr. Phương): 090.758.6969 (0907586969)
 - Email, giờ mở cửa, tài khoản ngân hàng: Cấu hình trực tiếp trong Admin > Cài đặt.
 
 4. ĐƯA LÊN HOSTING / VERCEL / NETLIFY

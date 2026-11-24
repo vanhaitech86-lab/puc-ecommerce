@@ -79,7 +79,7 @@
       role: 'Super Admin',
       permissions: 'Toàn quyền hệ thống (Full Access)',
       email: '',
-      phone: '0906 273 927',
+      phone: '090.758.6969',
       status: 'Đang hoạt động',
       createdAt: '2026-01-01 08:00',
       lastLogin: 'Hôm nay',
@@ -92,7 +92,7 @@
       role: 'Quản Lý Kinh Doanh',
       permissions: 'Đơn hàng, Khách hàng, Leads CRM & Báo cáo',
       email: '',
-      phone: '0906 273 927',
+      phone: '090.758.6969',
       status: 'Đang hoạt động',
       createdAt: '2026-01-15 08:30',
       lastLogin: 'Hôm nay',
@@ -105,7 +105,7 @@
       role: 'Quản Lý Kỹ Thuật',
       permissions: 'Thiết bị cho thuê, Sản phẩm & Lịch bảo trì',
       email: '',
-      phone: '0906 273 927',
+      phone: '090.758.6969',
       status: 'Đang hoạt động',
       createdAt: '2026-02-01 09:00',
       lastLogin: 'Hôm nay',
@@ -121,7 +121,7 @@
     shortName: 'PUC OFFICE EQUIPMENT',
     taxId: '0107485011',
     hotline: '090.758.6969',
-    phone: '0906 273 927',
+    phone: '0907586969',
     email: '',
     website: 'https://puc-ecommerce.vercel.app',
     address: 'Số 21, ngõ 75 Cầu Đất, P. Hồng Hà, Hà Nội · VPGD: 393 Bạch Đằng, P. Hồng Hà, HN',
@@ -897,8 +897,18 @@
   // INITIALIZATION & LOCALSTORAGE MANAGEMENT
   // =========================================================================
   function initStorage() {
-    if (!localStorage.getItem(STORAGE_KEYS.SETTINGS)) {
+    const existingSetRaw = localStorage.getItem(STORAGE_KEYS.SETTINGS);
+    if (!existingSetRaw) {
       localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(SEED_SETTINGS));
+    } else {
+      try {
+        const s = JSON.parse(existingSetRaw);
+        if (s && (/0906[\s.]?273[\s.]?927/.test(s.hotline || '') || /0906[\s.]?273[\s.]?927/.test(s.phone || ''))) {
+          s.hotline = '090.758.6969';
+          s.phone = '0907586969';
+          localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(s));
+        }
+      } catch (e) { /* ignore */ }
     }
     // Đồng bộ 262 sản phẩm (kèm danh mục Fujifilm Việt Nam) từ window.PUC_PRODUCTS vào Admin Store
     const catalogSource = window.PUC_PRODUCTS;
@@ -1624,7 +1634,7 @@
         role: accData.role || 'Quản Lý Kinh Doanh',
         permissions: rolePermMap[accData.role] || 'Quản trị vận hành',
         email: sanitizeValue(accData.email || ''),
-        phone: sanitizeValue(accData.phone || '0906 273 927'),
+        phone: sanitizeValue(accData.phone || '090.758.6969'),
         status: 'Đang hoạt động',
         createdAt: new Date().toISOString().replace('T', ' ').slice(0, 16),
         lastLogin: 'Chưa đăng nhập',

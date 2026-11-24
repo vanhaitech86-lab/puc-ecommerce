@@ -31,13 +31,13 @@
     ewallets: {
       momo: {
         name: "Ví Điện Tử MoMo",
-        account: "0906273927",
+        account: "0907586969",
         receiver: "PUC TRADING AND SERVICES CO.,LTD",
         color: "#A50064"
       },
       zalopay: {
         name: "Ví Điện Tử ZaloPay",
-        account: "0906273927",
+        account: "0907586969",
         receiver: "CÔNG TY TNHH THƯƠNG MẠI VÀ DỊCH VỤ PUC",
         color: "#0068FF"
       }
@@ -362,7 +362,7 @@
             </div>
             <h4 class="font-bold text-white text-sm">Thanh Toán Qua Ví Điện Tử MoMo</h4>
             <p class="text-gray-300 text-xs max-w-sm mx-auto leading-relaxed">
-              Sau khi đặt hàng, bạn có thể quét mã QR MoMo hoặc chuyển đến số <strong>0906.273.927</strong> (PUC OFFICE EQUIPMENT TRADING).
+              Sau khi đặt hàng, bạn có thể quét mã QR MoMo hoặc chuyển đến số <strong>090.758.6969</strong> (PUC OFFICE EQUIPMENT TRADING).
             </p>
             <div class="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between text-xs max-w-sm mx-auto">
               <span class="text-gray-400">Nội dung chuyển:</span>
@@ -426,7 +426,7 @@
         paymentMethodName: this.getMethodName(this.selectedMethod),
         customer: {
           fullName: customerData.fullName || 'Khách Hàng',
-          phone: customerData.phone || '0906273927',
+          phone: customerData.phone || '0907586969',
           address: customerData.address || 'Hà Nội',
           notes: customerData.notes || ''
         },
