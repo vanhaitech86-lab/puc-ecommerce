@@ -156,7 +156,9 @@
   function resolveImg(src) {
     if (!src) return ROOT + 'img/site/logo.png';
     if (/^(https?:|data:)/i.test(src)) return src;
-    return ROOT + src.replace(/^(\.\.\/)+/, '');
+    var clean = src.replace(/^(\.\.\/)+/, '');
+    if (/^img\/products\//.test(clean) && clean.indexOf('?') === -1) clean += '?v=20261125c';
+    return ROOT + clean;
   }
 
   /* ---------- Hệ thống Đo lường Hiệu quả Website (Web Analytics Engine) ---------- */
